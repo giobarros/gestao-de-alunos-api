@@ -34,7 +34,31 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Iniciar aplicação
+        run: npm start &
+        env:
+          MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
+          PORT: 3000
+
+      - name: Aguardar aplicação iniciar
+        run: |
+          for i in {1..30}; do
+            if curl --silent --fail http://localhost:3000/ > /dev/null; then
+              echo "Aplicação iniciada!"
+              exit 0
+            fi
+
+            echo "Aguardando aplicação..."
+            sleep 2
+          done
+
+          echo "A aplicação não iniciou."
+          exit 1
+
       - name: Executar testes
         run: npm test
         env:
           MONGODB_URI: mongodb://127.0.0.1:27017/gestao-de-alunos-test
+          BASE_URL: http://localhost:3000
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
