@@ -1,0 +1,48 @@
+[
+    {
+        "testTitle": "Validar que o aluno Lucas pode ser matriculado e registrar um trabalho",
+
+        "dadosAlunos": {
+            "nome": "Lucas Felipe",
+            "email": "lucas.felipe@example.com",
+            "matricula": "202601",
+            "senha": "45231"
+        },
+
+        "dadosDisciplinas": {
+            "nome": "Estrutura de Dados",
+            "codigo": "ED10001",
+            "cargaHoraria": 60
+        },
+
+        "dadosTrabalho": {
+            "titulo": "Lista de Exercícios de Estrutura de Dados",
+            "descricao": "Resolução dos exercícios do 35 ao 50 do capítulo 3."
+        },
+
+        "statusCodeEsperado": 201
+    },
+    {
+        "testTitle": "Validar que o aluno Pedro pode ser matriculado e registrar um trabalho",
+
+        "dadosAlunos": {
+            "nome": "Pedro Silva",
+            "email": "pedro.silva@example.com",
+            "matricula": "202602",
+            "senha": "632219"
+        },
+
+        "dadosDisciplinas": {
+            "nome": "Engenharia de Requisitos",
+            "codigo": "ER10001",
+            "cargaHoraria": 60
+        },
+
+        "dadosTrabalho": {
+            "titulo": "Lista de Exercícios de Engenharia de Requisitos",
+            "descricao": "Resolução dos exercícios de 20 ao 35 do capítulo 2."
+        },
+
+        "statusCodeEsperado": 201
+    }
+]
